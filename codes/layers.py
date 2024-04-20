@@ -10,8 +10,7 @@ def swish(inputs):
     return (K.sigmoid(inputs) * inputs)
 def h_swish(inputs):
     return inputs * tf.nn.relu6(inputs + 3) / 6
-
-# 函数绑定，将激活函数swish和h_swish添加到keras框的Activation类中
+    
 get_custom_objects().update({'swish': Activation(swish)})
 get_custom_objects().update({'h_swish': Activation(h_swish)})
 
