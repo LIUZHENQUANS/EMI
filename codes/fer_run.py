@@ -71,7 +71,7 @@ if mode == 'train':
             lr = 0.0001
         return lr
     change_lr = LearningRateScheduler(schedule, verbose=1)
-    model_checkpoint = ModelCheckpoint('FER_E4x.h5', 'val_accuracy', verbose=1, save_best_only=True)
+    model_checkpoint = ModelCheckpoint(model_save_dir, 'val_accuracy', verbose=1, save_best_only=True)
     history = model.fit_generator(
         train_generator,
         steps_per_epoch=train_samples // batch_size,
